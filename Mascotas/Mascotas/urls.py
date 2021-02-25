@@ -20,5 +20,5 @@ from Mascotas.view import saludo
 
 urlpatterns = [
    path('admin/', admin.site.urls),
-   path('prueba/', saludo)
+   path('', saludo)
 ]
