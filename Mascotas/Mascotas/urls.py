@@ -15,13 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from Mascotas.view import saludo, registro, login,logout
+from Mascotas.view import saludo, registro, login, logout, adoptar, adopcion, denuncias, transito, veterinarias
 """aca van las vistas o views"""
 
 urlpatterns = [
    path('admin/', admin.site.urls),
    path('', saludo),
-   path('register', registro),
-   path('login', login),
-   path('logout', logout),
+   path('registro/', registro),
+   path('login/', login),
+   path('logout/', logout),
+   path('adoptar/', adoptar),
+   path('adopciones/', adopcion),
+   path('transito/', transito),
+   path('denuncias/', denuncias),
+   path('veterinarias/', veterinarias),
 ]

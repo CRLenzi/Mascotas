@@ -13,6 +13,23 @@ def saludo(request):
 	
 	return render(request, "index.html")
 
+def adopcion(request):
+	
+	return render(request, "adopciones.html")
+
+
+def denuncias(request):
+	
+	return render(request, "denuncias.html")
+
+def veterinarias(request):
+	
+	return render(request, "veterinarias.html")
+
+def transito(request):
+	
+	return render(request, "transito.html")
+
 def registro(request):
     # Creamos el formulario de autenticación vacío
     form = UserCreationForm()
@@ -36,7 +53,7 @@ def registro(request):
 	
 
     # Si llegamos al final renderizamos el formulario
-    return render(request, "users/register.html", {'form': form})
+    return render(request, "registro.html", {'form': form})
 
 def login(request):
     # Creamos el formulario de autenticación vacío
@@ -61,11 +78,14 @@ def login(request):
                 return redirect('/')
 
     # Si llegamos al final renderizamos el formulario
-    return render(request, "users/login.html", {'form': form})
+    return render(request, "login.html", {'form': form})
 
-def logout(request):
-    # Redireccionamos a la portada
-    return redirect('/')
+def adoptar(request):
+    # Si estamos identificados permitimos la adopcion
+    if request.user.is_authenticated:
+        return render(request, "adoptar.html")
+    # En otro caso redireccionamos al login
+    return redirect('/login')
 
 def logout(request):
     # Finalizamos la sesión
