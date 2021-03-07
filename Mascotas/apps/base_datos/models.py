@@ -7,29 +7,17 @@
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
 
-
-class Adopcion(models.Model):
-    id_duenio = models.OneToOneField('Usuario', models.DO_NOTHING, db_column='id_duenio', primary_key=True)
-    id_nvo_duenio = models.ForeignKey('Usuario', models.DO_NOTHING, db_column='id_nvo_duenio', blank=True, null=True)
-    id_mascotas = models.ForeignKey('MascotasAdopcion', models.DO_NOTHING, db_column='id_Mascotas')  # Field name made lowercase.
-    descripcion = models.CharField(max_length=250, blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'adopcion'
-        unique_together = (('id_duenio', 'id_mascotas'),)
-
-
-class Denuncias(models.Model):
-    id_denuncia = models.AutoField(db_column='id_Denuncia', primary_key=True)  # Field name made lowercase.
-    id_duenio = models.ForeignKey('Usuario', models.DO_NOTHING, db_column='id_duenio')
-    id_nvo_duenio = models.ForeignKey('Usuario', models.DO_NOTHING, db_column='id_nvo_duenio', blank=True, null=True)
-    descripcion = models.CharField(max_length=250)
+class Usuario(models.Model):
+    id_usuario = models.AutoField(db_column='id_Usuario', primary_key=True)  # Field name made lowercase.
+    nombre = models.CharField(max_length=255, blank=True, null=True)
+    email = models.CharField(unique=True, max_length=50)
+    password = models.CharField(max_length=255)
+    direccion = models.CharField(max_length=255, blank=True, null=True)
+    telefono = models.CharField(max_length=255, blank=True, null=True)
 
     class Meta:
         managed = False
-        db_table = 'denuncias'
-        unique_together = (('id_denuncia', 'id_duenio'),)
+        db_table = 'usuario'
 
 
 class MascotaTransito(models.Model):
@@ -38,11 +26,11 @@ class MascotaTransito(models.Model):
     descripcion = models.CharField(max_length=250, blank=True, null=True)
     edad = models.CharField(max_length=10, blank=True, null=True)
     tiempo = models.CharField(db_column='Tiempo', max_length=15, blank=True, null=True)  # Field name made lowercase.
-    vacunas = models.IntegerField()
-    castracion = models.IntegerField()
-    atencion_especial = models.IntegerField()
+    vacunas = models.IntegerField(blank=True, null=True)
+    castracion = models.IntegerField(blank=True, null=True)
+    atencion_especial = models.IntegerField(blank=True, null=True)
     des_at_especial = models.CharField(max_length=200, blank=True, null=True)
-    estado = models.IntegerField()
+    estado = models.IntegerField(blank=True, null=True)
     imagen = models.TextField(blank=True, null=True)
 
     class Meta:
@@ -68,9 +56,32 @@ class MascotasAdopcion(models.Model):
         db_table = 'mascotas_adopcion'
         unique_together = (('a_mascotas', 'id_usuario_fk'),)
 
+class Adopcion(models.Model):
+    id_duenio = models.OneToOneField('Usuario', models.DO_NOTHING, db_column='id_duenio', primary_key=True)
+    id_nvo_duenio = models.ForeignKey('Usuario', models.DO_NOTHING, db_column='id_nvo_duenio', blank=True, null=True, related_name='adoptante')
+    id_mascotas = models.ForeignKey('MascotasAdopcion', models.DO_NOTHING, db_column='id_Mascotas')  # Field name made lowercase.
+    descripcion = models.CharField(max_length=250, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'adopcion'
+        unique_together = (('id_duenio', 'id_mascotas'),)
+
+
+class Denuncias(models.Model):
+    id_denuncia = models.AutoField(db_column='id_Denuncia', primary_key=True)  # Field name made lowercase.
+    id_duenio = models.ForeignKey('Usuario', models.DO_NOTHING, db_column='id_duenio',related_name='denunciante')
+    id_nvo_duenio = models.ForeignKey('Usuario', models.DO_NOTHING, db_column='id_nvo_duenio', blank=True, null=True, related_name='denunciado')
+    descripcion = models.CharField(max_length=250)
+
+    class Meta:
+        managed = False
+        db_table = 'denuncias'
+        unique_together = (('id_denuncia', 'id_duenio'),)
+
 
 class Transito(models.Model):
-    id_duenio = models.OneToOneField('Usuario', models.DO_NOTHING, db_column='id_duenio', primary_key=True)
+    id_duenio = models.OneToOneField('Usuario', models.DO_NOTHING, db_column='id_duenio', primary_key=True,related_name='solicitante')
     id_nvo_duenio = models.ForeignKey('Usuario', models.DO_NOTHING, db_column='id_nvo_duenio', blank=True, null=True)
     id_mascotas = models.ForeignKey(MascotaTransito, models.DO_NOTHING, db_column='id_Mascotas')  # Field name made lowercase.
     descripcion = models.CharField(max_length=250, blank=True, null=True)
@@ -80,18 +91,6 @@ class Transito(models.Model):
         db_table = 'transito'
         unique_together = (('id_duenio', 'id_mascotas'),)
 
-
-class Usuario(models.Model):
-    id_usuario = models.AutoField(db_column='id_Usuario', primary_key=True)  # Field name made lowercase.
-    nombre = models.CharField(max_length=255, blank=True, null=True)
-    email = models.CharField(unique=True, max_length=50)
-    password = models.CharField(max_length=255)
-    direccion = models.CharField(max_length=255, blank=True, null=True)
-    telefono = models.CharField(max_length=255, blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'usuario'
 
 
 class Veterinarias(models.Model):

@@ -1,3 +1,4 @@
+{% extends 'index.html' %}
 {% load static %}
 
 <!DOCTYPE html>
@@ -33,96 +34,51 @@
 
 <body>
 
-  <!-- ======= Header ======= -->
-  <header id="header" class="header">
-    <div class="container">
+{% block content %}  
+<!-- ======= Mascotas Section ======= -->
+  <Main>
 
-      <div id="logo" class="pull-left">
-        <h1><a href="index.html" class="scrollto">Mascotas</a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html"><img src="assets/img/logo.png" alt=""></a> -->
-      </div>
+    <section id="adopciones" class="section-bg">
 
-      <nav id="nav-menu-container">
-        <ul class="nav-menu">
-          <li class="menu-active"><a href="">Home</a></li>
-          <li><a href="#about">Sobre Nosotros</a></li>
-          <li><a href="adopciones">Adopciones</a></li>
-          <li><a href="transito">Transito</a></li>
-          <li><a href="denuncias">Denuncias</a></li>
-          <li><a href="veterinarias">Veterinarias</a></li>
-          <li class="menu-has-children"><a href="">Usuarios</a>
-            <ul>
-              <li><a href="registro">Registro</a></li>
-              <li><a href="login">Iniciar seción</a></li>
-            </ul>
-          </li>
-          <li><a href="contacto">Contactanos</a></li>
-        </ul>
-      </nav><!-- #nav-menu-container -->
-    </div>
-  </header><!-- End Header -->
+        <div class="container">
 
-  <!-- ======= Intro Section ======= -->
-  <section id="adopciones" class="section-bg">
-
-
-    <div class="container">
-      
-      <h2>Adopciones</h2>
-      <p>Nombre de la mascota: {{Nombre_Mascota}}</p>
-      <p>foto de la mascota: {{foto}}</p>
-      <p>descripcion: {{descripcion}}</p>
-      <p>castracion: {{castracion}}</p>
-      <p>vacunas: {{vacunas}}</p>
-      <p>edad: {{edad}}</p>
-
-    </div>
-
-    
-
-  </section><!-- End Intro Section -->
-
-  <section id="adopciones" class="section-bg">
-      <div class="container">
-
-        <div class="section-header">
-          <h3 class="section-title">Adopciones</h3>
-          <span class="section-divider"></span>
-          <p class="section-description">Aquí encotraras las mascotas que se encuentran en adopción</p>
-        </div>
-
-        <p>Nombre de la mascota: {{Nombre_Mascota}}</p>
-        <p>foto de la mascota: {{foto}}</p>
-        <p>descripcion: {{descripcion}}</p>
-        <p>castracion: {{castracion}}</p>
-        <p>vacunas: {{vacunas}}</p>
-        <p>edad: {{edad}}</p>
-        
-        <div class="row">
-        {%for Mascotas in adopciones %}
-          <div class="col-lg-4 col-md-6">
-            <div class="box wow fadeInLeft">
-              <h3>Nombre_Mascota</h3>
-              <h2><sup>edad</sup></h2>
-              <ul>
-                <li><i class="ion-android-checkmark-circle"></i> foto</li>
-                <li><i class="ion-android-checkmark-circle"></i> descripcion</li>
-                <li><i class="ion-android-checkmark-circle"></i> castracion</li>
-                <li><i class="ion-android-checkmark-circle"></i> vacunas</li>
-              </ul>
-              <a href="Adoptar" class="get-started-btn">Adoptar</a>
-            </div>
+          <div class="section-header">
+            <h3 class="section-title">Adopciones</h3>
+            <span class="section-divider"></span>
+            <p class="section-description">Aquí encotraras las mascotas que se encuentran en adopción</p>
           </div>
-        {% endfor %}
+          <div class="row">
+          {%for a in Mascota %}
+            <div class="col-lg-4 col-md-6">
+              <div class="box wow fadeInLeft">
+                <h3>{{a.nombre}}</h3>
+                <h2><sup>{{a.edad}}</sup></h2>
+                <ul>
+                  <li><i class="ion-android-checkmark-circle"></i> {{a.imagen}}</li>
+                  <li><i class="ion-android-checkmark-circle"></i> {{a.descripcion}}</li>
+                  {%if a.vacunas %}
+                    <li><i class="ion-android-checkmark-circle"></i> Vacunas al día</li>
+                  {%endif%}
+                  {%if a.castracion %}
+                    <li><i class="ion-android-checkmark-circle"></i> Esta castrado</li>
+                  {%endif%}
+                  {%if a.atencion_especial %}
+                    <li><i class="ion-android-checkmark-circle"></i> {{a.des_at_especial}}</li>
+                  {%endif%}
+                 </ul>
+                <a href="Adoptar" class="get-started-btn">Adoptar</a>
+              </div>
+            </div>
+          {% endfor %}
           
+          </div>
         </div>
-      </div>
+
     </section><!-- End Pricing Section -->
 
-
+  </Main>
  
-
+{% endblock %}
   <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="container">

@@ -38,36 +38,30 @@
 
 <body>
 
-  <!-- ======= Header ======= -->
-  <header id="header" class="header-transparent">
-    <div class="container">
+  {% block content %}  
+  
+      <div class="product-screens">
 
-      <div id="logo" class="pull-left">
-        <h1><a href="index.html" class="scrollto">Mascotas</a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html"><img src="assets/img/logo.png" alt=""></a> -->
+        <div class="product-screen-1 wow fadeInUp" data-wow-delay="0.4s" data-wow-duration="0.6s"  background-attachment: fixed>
+          <h1>nombre de la veterinaria</h1>
+          <h1>Telefono</h1>
+          <h1>Direccion</h1>
+          <img src="assets/img/product-screen-1.jpg" alt="">
+        </div>
+
+        <div class="product-screen-2 wow fadeInUp" data-wow-delay="0.2s" data-wow-duration="0.6s">
+          <img src="assets/img/product-screen-2.png" alt="">
+        </div>
+
+        <div class="product-screen-3 wow fadeInUp" data-wow-duration="0.6s">
+          <img src="assets/img/product-screen-3.png" alt="">
+        </div>
+
       </div>
 
-      <nav id="nav-menu-container">
-        <ul class="nav-menu">
-          <li class="menu-active"><a href="">Home</a></li>
-          <li><a href="#about">Sobre Nosotros</a></li>
-          <li><a href="adopciones">Adopciones</a></li>
-          <li><a href="transito">Transito</a></li>
-          <li><a href="denuncias">Denuncias</a></li>
-          <li><a href="veterinarias">Veterinarias</a></li>
-          <li class="menu-has-children"><a href="">Usuarios</a>
-            <ul>
-              <li><a href="registro">Registro</a></li>
-              <li><a href="login">Iniciar seción</a></li>
-            </ul>
-          </li>
-          <li><a href="contacto">Contactanos</a></li>
-        </ul>
-      </nav><!-- #nav-menu-container -->
-    </div>
-  </header><!-- End Header -->
-
+    
+  {% endblock %}
+  
 <!-- Vendor JS Files -->
   <script src="{% static 'assets/vendor/jquery/jquery.min.js' %}"></script>
   <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>

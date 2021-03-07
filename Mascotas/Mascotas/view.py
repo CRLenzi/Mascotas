@@ -5,6 +5,9 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login as do_login
 from django.contrib.auth import logout as do_logout
+from apps.base_datos.models import MascotasAdopcion, MascotaTransito, Adopcion
+from django.template import loader, Context
+from django.views.generic import ListView
 
 
 """aca iran todas las vistas"""
@@ -14,15 +17,23 @@ def saludo(request):
 	return render(request, "index.html")
 
 def adopcion(request):
-	
-	return render(request, "adopciones.html")
 
+    t = MascotasAdopcion.objects.exclude(estado=0)
+    context = {"Mascota": t}
+    return render (request, "adopciones.html", context)
+
+def nva_adopcion(request, mascota):
+
+    t = loader.get_template('adoptar.html')
+    c = Context(mascota)
+
+    return t.render(c)
 
 def denuncias(request):
 	
 	return render(request, "denuncias.html")
 
-def veterinarias(request):
+def veterinaria(request):
 	
 	return render(request, "veterinarias.html")
 
