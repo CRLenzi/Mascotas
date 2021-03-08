@@ -15,18 +15,22 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from Mascotas.view import saludo, registro, login, logout, adoptar, adopcion, denuncias, transito, veterinaria
+from Mascotas.view import inicio, denuncias, veterinaria
+from apps.transito.views import transito
+from apps.adopcion.views import adopcion, adoptar, nva_adopcion
+from apps.usuario.views import registro, login, logout
 """aca van las vistas o views"""
 
 urlpatterns = [
-   path('admin/', admin.site.urls),
-   path('', saludo),
-   path('registro/', registro, name= 'registro'),
-   path('login/', login, name='login'),
-   path('logout/', logout, name='logout'),
-   path('adoptar/', adoptar, name= 'adoptar'),
-   path('adopciones/', adopcion, name= 'adopcion'),
-   path('transito/', transito, name= 'transito'),
-   path('denuncias/', denuncias, name= 'denuncias'),
-   path('veterinarias/', veterinaria, name= 'veterinarias'),
+    path('admin/', admin.site.urls),
+    path('', inicio, name = 'inicio'),
+    path('registro/', registro, name= 'registro'),
+    path('login/', login, name='login'),
+    path('logout/', logout, name='logout'),
+    path('adoptar/', adoptar, name= 'adoptar'),
+    path('adopciones/', adopcion, name= 'adopcion'),
+    path ('nueva/', nva_adopcion, name= 'nuevaadopcion'),
+    path('transito/', transito, name= 'transito'),
+    path('denuncias/', denuncias, name= 'denuncias'),
+    path('veterinarias/', veterinaria, name= 'veterinarias'),
 ]

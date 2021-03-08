@@ -1,9 +1,4 @@
-/**
-* Template Name: Avilon - v2.2.1
-* Template URL: https://bootstrapmade.com/avilon-bootstrap-landing-page-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
+
 !(function($) {
   "use strict";
 
@@ -150,5 +145,7 @@
   $(document).ready(function() {
     $('.venobox').venobox();
   });
-
+  
 })(jQuery);
+
+

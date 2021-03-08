@@ -10,19 +10,7 @@ from django.template import loader, Context
 from django.views.generic import ListView
 
 
-"""aca iran todas las vistas"""
-
-def inicio(request):
+def transito(request):
 	
-	return render(request, "index.html")
-
-def denuncias(request):
-	
-	return render(request, "denuncias.html")
-
-def veterinaria(request):
-	
-	return render(request, "veterinarias.html")
-
-
+	return render(request, "transito.html")
 

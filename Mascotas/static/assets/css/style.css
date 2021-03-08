@@ -1,9 +1,3 @@
-/**
-* Template Name: Avilon - v2.2.1
-* Template URL: https://bootstrapmade.com/avilon-bootstrap-landing-page-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
 
 /*--------------------------------------------------------------
 # General
@@ -132,7 +126,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   height: 100vh;
   background: linear-gradient(45deg, rgba(29, 224, 153, 0.8), rgba(29, 200, 205, 0.8));
-  background-image:"img/gato.jpg";
+  background-image:"assets/img/gato.jpg";
   background-position: center;
   background-size: cover;
   position: relative;
@@ -535,6 +529,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   background: #eff5f5;
 }
 
+
 /*--------------------------------------------------------------
 # Breadcrumbs
 --------------------------------------------------------------*/
@@ -911,99 +906,6 @@ body.mobile-nav-active #mobile-nav-toggle {
   }
 }
 
-/* Clients Section
---------------------------------*/
-#clients {
-  padding: 30px 0;
-  background: #fff;
-  overflow: hidden;
-}
-
-#clients img {
-  max-width: 100%;
-  opacity: 0.5;
-  transition: 0.3s;
-  padding: 15px 0;
-}
-
-#clients img:hover {
-  opacity: 1;
-}
-
-/* Pricing Section
---------------------------------*/
-#pricing {
-  padding: 60px 0 60px 0;
-  overflow: hidden;
-}
-
-#pricing .box {
-  padding: 40px;
-  margin-bottom: 30px;
-  box-shadow: 0px 0px 30px rgba(73, 78, 92, 0.15);
-  background: #fff;
-  text-align: center;
-}
-
-#pricing h3 {
-  font-weight: 400;
-  margin-bottom: 15px;
-  font-size: 28px;
-}
-
-#pricing h4 {
-  font-size: 46px;
-  color: #1dc8cd;
-  font-weight: 300;
-}
-
-#pricing h4 sup {
-  font-size: 20px;
-  top: -20px;
-}
-
-#pricing h4 span {
-  color: #bababa;
-  font-size: 20px;
-}
-
-#pricing ul {
-  padding: 0;
-  list-style: none;
-  color: #999;
-  text-align: left;
-  line-height: 20px;
-}
-
-#pricing ul li {
-  padding-bottom: 12px;
-}
-
-#pricing ul i {
-  color: #1dc8cd;
-  font-size: 18px;
-  padding-right: 4px;
-}
-
-#pricing .get-started-btn {
-  background: #515e61;
-  display: inline-block;
-  padding: 6px 30px;
-  border-radius: 20px;
-  color: #fff;
-  transition: none;
-  font-size: 14px;
-  font-weight: 400;
-  font-family: "Montserrat", sans-serif;
-}
-
-#pricing .featured {
-  border: 2px solid #1dc8cd;
-}
-
-#pricing .featured .get-started-btn {
-  background: linear-gradient(45deg, #1de099, #1dc8cd);
-}
 
 /* Frequently Asked Questions Section
 --------------------------------*/
@@ -1064,102 +966,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   content: "\f2c7" !important;
 }
 
-/* Our Team Section
---------------------------------*/
-#team {
-  padding: 60px 0;
-  overflow: hidden;
-}
 
-#team .member {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-#team .member .pic {
-  margin-bottom: 15px;
-  overflow: hidden;
-  height: 260px;
-}
-
-#team .member .pic img {
-  max-width: 100%;
-}
-
-#team .member h4 {
-  font-weight: 700;
-  margin-bottom: 2px;
-  font-size: 18px;
-}
-
-#team .member span {
-  font-style: italic;
-  display: block;
-  font-size: 13px;
-}
-
-#team .member .social {
-  margin-top: 15px;
-}
-
-#team .member .social a {
-  color: #b3b3b3;
-}
-
-#team .member .social a:hover {
-  color: #1dc8cd;
-}
-
-#team .member .social i {
-  font-size: 18px;
-  margin: 0 2px;
-}
-
-/* Gallery Section
---------------------------------*/
-#gallery {
-  background: #fff;
-  padding: 60px 0 0 0;
-  overflow: hidden;
-}
-
-#gallery .container-fluid {
-  padding: 0px;
-}
-
-#gallery .gallery-overlay {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 1;
-  transition: all ease-in-out 0.4s;
-}
-
-#gallery .gallery-item {
-  overflow: hidden;
-  position: relative;
-  padding: 0;
-  vertical-align: middle;
-  text-align: center;
-}
-
-#gallery .gallery-item img {
-  transition: all ease-in-out 0.4s;
-  width: 100%;
-}
-
-#gallery .gallery-item:hover img {
-  transform: scale(1.1);
-}
-
-#gallery .gallery-item:hover .gallery-overlay {
-  opacity: 1;
-  background: rgba(0, 0, 0, 0.7);
-}
 
 /* Contact Section
 --------------------------------*/
@@ -1344,3 +1151,5 @@ body.mobile-nav-active #mobile-nav-toggle {
 #footer .footer-links a:hover {
   color: #1dc8cd;
 }
+
+
