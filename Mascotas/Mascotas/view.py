@@ -14,7 +14,7 @@ from django.views.generic import ListView
 
 def inicio(request):
 	
-	return render(request, "index.html")
+	return render(request, "inicio.html")
 
 def denuncias(request):
 	

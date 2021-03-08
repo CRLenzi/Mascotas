@@ -27,7 +27,7 @@
   <link href="{% static 'assets/vendor/registro/registro.css' %}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="{% static 'assets/css/style.css' %}" rel="Alternate StyleSheet">
+  <link href="{% static 'assets/css/style.css' %}" rel="Stylesheet">
 
   
 </head>
@@ -35,7 +35,7 @@
 <body>
   
   <!-- ======= Header ======= -->
-  <header id="header" class="header-transparent">
+  <header id="header" class="header-transparent header-fixed">
     <div class="container">
     
 
@@ -44,13 +44,12 @@
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="assets/img/logo.png" alt=""></a> -->
       </div>
-
+                  
       <nav id="nav-menu-container">
-        <ul class="nav-menu">
+        <ul class="nav-menu sf-js-enabled sf-arrows" style="touch-action: pan-y;">
           <li class="menu-active"><a href="{% url 'inicio' %}">Home</a></li>
           <li><a href="#about">Sobre Nosotros</a></li>
-          <li><a href="">Adopciones</a></li>
-          <li class="menu-has-children"><a href="">Adopciones</a>
+          <li class="menu-has-children"><a href="" class="sf-with-ul">Adopciones</a>
             <ul>
               <li><a href="{% url 'adopcion' %}">Mascotas en adopcion</a></li>
               <li><a href="{% url 'nuevaadopcion' %}">Ingresar nueva adopcion</a></li>
@@ -59,7 +58,7 @@
           <li><a href="{% url 'transito' %}">Transito</a></li>
           <li><a href="{% url 'denuncias' %}">Denuncias</a></li>
           <li><a href="{% url 'veterinarias' %}">Veterinarias</a></li>
-          <li class="menu-has-children"><a href="">Usuarios</a>
+          <li class="menu-has-children"><a href="" class="sf-with-ul">Usuarios</a>
             <ul>
               <li><a href="{% url 'registro' %}">Registro</a></li>
               <li><a href="{% url 'login' %}">Iniciar seción</a></li>
@@ -74,20 +73,31 @@
 
   <!-- ======= Intro Section ======= -->
   <section id="intro">
-
     <div class="intro-text">
       <h2>Bienvenidos a Mascotas</h2>
       <p>Pagina para adoptar y poner en adopcion mascotas</p>
-      <intro background= "{% static 'assets/img/gato.jpg' %}">
-      
     </div>
+    <div class="product-screens">
 
+      <div class="product-screen-1 wow fadeInUp animated" data-wow-delay="0.4s" data-wow-duration="0.6s" style="visibility: visible; animation-duration: 0.6s; animation-delay: 0.4s;">
+        <img src="assets/img/product-screen-1.png" alt="">
+      </div>
+
+      <div class="product-screen-2 wow fadeInUp animated" data-wow-delay="0.2s" data-wow-duration="0.6s" style="visibility: visible; animation-duration: 0.6s; animation-delay: 0.2s;">
+        <img src="assets/img/product-screen-2.png" alt="">
+      </div>
+
+      <div class="product-screen-3 wow fadeInUp animated" data-wow-duration="0.6s" style="visibility: visible; animation-duration: 0.6s;">
+        <img src="assets/img/product-screen-3.png" alt="">
+      </div>
+
+    </div>
   </section><!-- End Intro Section -->
-
-  {% block content %}
+  <main>
+    {% block content %}
   
-  {% endblock %}
-
+    {% endblock %}
+  </main>
   <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="container">

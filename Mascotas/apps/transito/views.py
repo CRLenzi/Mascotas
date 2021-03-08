@@ -11,6 +11,11 @@ from django.views.generic import ListView
 
 
 def transito(request):
-	
-	return render(request, "transito.html")
 
+	t = MascotaTransito.objects.filter(estado=False)
+    
+	ctx = {
+        "Transito": t
+	}
+
+	return render(request, "adopcion/transito.html", ctx)

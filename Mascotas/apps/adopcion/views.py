@@ -20,8 +20,10 @@ def adoptar(request):
 
 def adopcion(request):
 
-    t = MascotasAdopcion.objects.exclude(estado=0)
-    context = {"Mascota": t}
+    t = MascotasAdopcion.objects.filter(estado=False)
+    context = {
+        "Mascota": t
+        }
     return render(request, "adopcion/adopciones.html", context)
 
 def nva_adopcion(request, mascota):
