@@ -5,13 +5,11 @@
 
   {% block content %}  
 
-    <form id="msform" method="post">
+    <form id="msform" method="post" action= ''>
       <fieldset>
-      <h2 class="fs-title">Iniciar secion</h2>
-      <h3 class="fs-subtitle"></h3>
-      <input type="text" name="email" placeholder="Email" />
-      <input type="password" name="pass" placeholder="Contraseña" />
-      <input type="button" name="Ingresar" class="next action-button" value="Ingresar" />
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" name="Ingresar" class="next action-button" value="Ingresar" />
       </fieldset>
     </form>
 

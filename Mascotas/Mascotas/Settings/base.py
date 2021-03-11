@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 from pathlib import Path
-from apps import base_datos
+from apps import usuario, adopcion, transito, mensajes, Denuncias
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -40,10 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
-    'apps.base_datos',
+    'apps.usuario',
     'apps.adopcion',
     'apps.transito',
-    'apps.usuario',
+    'apps.mensajes',
+    'apps.Denuncias',
 ]
 
 MIDDLEWARE = [
@@ -92,7 +93,7 @@ DATABASES = {
         }
 }
 
-
+AUTH_USER_MODEL = 'usuario.Usuario'
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 

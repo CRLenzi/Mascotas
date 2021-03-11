@@ -25,6 +25,7 @@
   <link href="{% static 'assets/vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
   <link href="{% static 'assets/vendor/venobox/venobox.css' %}" rel="stylesheet">
   <link href="{% static 'assets/vendor/registro/registro.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/formsnueva/formsnueva.css' %}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
   <link href="{% static 'assets/css/style.css' %}" rel="Stylesheet">
@@ -52,18 +53,37 @@
           <li class="menu-has-children"><a href="" class="sf-with-ul">Adopciones</a>
             <ul>
               <li><a href="{% url 'adopcion' %}">Mascotas en adopcion</a></li>
-              <li><a href="{% url 'nuevaadopcion' %}">Ingresar nueva adopcion</a></li>
+                {%if user.is_authenticated%}
+                  <li><a href="{% url 'nuevaadopcion' %}">Ingresar nueva adopcion</a></li>
+                {% endif %}
             </ul>
           </li>
-          <li><a href="{% url 'transito' %}">Transito</a></li>
-          <li><a href="{% url 'denuncias' %}">Denuncias</a></li>
-          <li><a href="{% url 'veterinarias' %}">Veterinarias</a></li>
-          <li class="menu-has-children"><a href="" class="sf-with-ul">Usuarios</a>
-            <ul>
-              <li><a href="{% url 'registro' %}">Registro</a></li>
-              <li><a href="{% url 'login' %}">Iniciar seción</a></li>
-            </ul>
-          </li>
+          <li><a href="">Transito</a></li>
+          <ul>
+              <li><a href="{% url 'transito' %}">Mascotas en transito</a></li>
+                {%if user.is_authenticated%}
+                  <li><a href="{% url 'nuevotransito' %}">Ingresar nuevo transito</a></li>
+                {% endif %}
+          </ul>
+          {%if user.is_authenticated%}
+            <li><a href="{% url 'denuncias' %}">Denunciar usuario</a></li>
+          {% endif %}
+          <li><a href="{% url 'veterinarias' %}">Veterinarias</a></li>   
+          {%if user.is_authenticated%}
+              <li class="menu-has-children"><a href="" class="sf-with-ul">{{ user.username }}</a>
+                <ul>
+                  <li><a href="{% url 'registro' %}">Mensajes</a></li>
+                  <li><a href="{% url 'login' %}">Cerrar secion</a></li>
+                </ul>
+              </li>
+          {%else %}
+              <li class="menu-has-children"><a href="" class="sf-with-ul">Usuarios</a>
+                <ul>
+                  <li><a href="{% url 'registro' %}">Registro</a></li>
+                  <li><a href="{% url 'login' %}">Iniciar seción</a></li>
+                </ul>
+              </li>
+          {% endif %}
           <li><a href="contacto">Contactanos</a></li>
         </ul>
       </nav><!-- #nav-menu-container -->

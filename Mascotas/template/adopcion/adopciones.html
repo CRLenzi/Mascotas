@@ -17,28 +17,32 @@
             <p class="section-description">Aquí encotraras las mascotas que se encuentran en adopción</p>
           </div>
           <div class="row">
-          {%for a in Mascota %}
-            <div class="col-lg-4 col-md-6">
-              <div class="box wow fadeInLeft">
-                <h3>{{a.nombre}}</h3>
-                <h2><sup>{{a.edad}}</sup></h2>
-                <ul>
-                  <li><i class="ion-android-checkmark-circle"></i> {{a.imagen}}</li>
-                  <li><i class="ion-android-checkmark-circle"></i> {{a.descripcion}}</li>
-                  {%if a.vacunas %}
-                    <li><i class="ion-android-checkmark-circle"></i> Vacunas al día</li>
-                  {%endif%}
-                  {%if a.castracion %}
-                    <li><i class="ion-android-checkmark-circle"></i> Esta castrado</li>
-                  {%endif%}
-                  {%if a.atencion_especial %}
-                    <li><i class="ion-android-checkmark-circle"></i> {{a.des_at_especial}}</li>
-                  {%endif%}
-                 </ul>
-                <a href="Adoptar" class="get-started-btn">Adoptar</a>
-              </div>
-            </div>
-          {% endfor %}
+            {% if object_list %}
+              {%for a in object_list %}
+                {% if a.estado = 0 %}
+                  <div class="col-lg-4 col-md-6">
+                    <div class="box wow fadeInLeft">
+                      <h3>{{a.nombre}}</h3>
+                      <h2><sup>{{a.edad}}</sup></h2>
+                      <ul>
+                        <li><i class="ion-android-checkmark-circle"></i> {{a.imagen}}</li>
+                        <li><i class="ion-android-checkmark-circle"></i> {{a.descripcion}}</li>
+                        {%if a.vacunas %}
+                          <li><i class="ion-android-checkmark-circle"></i> Vacunas al día</li>
+                        {%endif%}
+                        {%if a.castracion %}
+                          <li><i class="ion-android-checkmark-circle"></i> Esta castrado</li>
+                        {%endif%}
+                        {%if a.atencion_especial %}
+                          <li><i class="ion-android-checkmark-circle"></i> {{a.des_at_especial}}</li>
+                        {%endif%}
+                      </ul>
+                      <a class= "btn-get-started scrollto"href={% url 'adoptar' a.a_mascotas %}> Adoptar </a>
+                    </div>
+                  </div>
+                {% endif %}
+              {% endfor %}
+            {%endif%}
           
           </div>
         </div>

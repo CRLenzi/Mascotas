@@ -8,42 +8,42 @@
   {% block content %}  
 
         <!-- multistep form -->
-    <form id="msform">
+    <form id="msform" action= '' method="post">
     <!-- progressbar -->
-    <ul id="progressbar">
-      <li class="active">Cuenta</li>
-      <li>Datos personales</li>
-      <li>Terminos y condiciones</li>
-    </ul>
-    <!-- fieldsets -->
-    <fieldset>
-      <h2 class="fs-title">Crea tu cuenta</h2>
-      <h3 class="fs-subtitle">Paso 1</h3>
-      <input type="text" name="email" placeholder="Email" />
-      <input type="password" name="pass" placeholder="Contraseña" />
-      <input type="password" name="cpass" placeholder="Confirmar Contraseña" />
-      <input type="button" name="next" class="next action-button" value="Next" />
-    </fieldset>
-    <fieldset>
-      <h2 class="fs-title">Ingresa tus datos personales</h2>
-      <h3 class="fs-subtitle">Paso 2</h3>
-     <input type="text" name="fname" placeholder="Nombre" />
-      <input type="text" name="lname" placeholder="Apellido" />
-      <input type="text" name="phone" placeholder="Telefono" />
-      <textarea name="address" placeholder="Direccion"></textarea>
-      <input type="button" name="previous" class="previous action-button" value="Previous" />
-      <input type="button" name="next" class="next action-button" value="Next" />
-    </fieldset>
-    <fieldset>
-      <h2 class="fs-title">Aceptacion de terminos y condiciones</h2>
-      <h3 class="fs-subtitle">Paso 3</h3>
-      <input type="checkbox" id="tc" name="tc" value="Acepto">
-      <label for="tc"> Acepto </label><br>
-      <input type="button" name="previous" class="previous action-button" value="Previous" />
-      <input type="submit" name="submit" class="submit action-button" value="Submit" />
-    </fieldset>
+      <ul id="progressbar">
+        <li class="active">Cuenta</li>
+        <li>Datos personales</li>
+        <li>Terminos y condiciones</li>
+      </ul>
+      <!-- fieldsets -->
+      <fieldset>
+        <h2 class="fs-title">Crea tu cuenta</h2>
+        <h3 class="fs-subtitle">Paso 1</h3>
+        {{form.email}}
+        {{form.password1}}
+        {{form.password2}}
+        {%if %}
+        <input type="button" name="next" class="next action-button" value="Next" />
+      </fieldset>
+      <fieldset>
+        <h2 class="fs-title">Ingresa tus datos personales</h2>
+        <h3 class="fs-subtitle">Paso 2</h3>
+        <input type="text" name="fname" placeholder="Nombre" />
+        <input type="text" name="lname" placeholder="Apellido" />
+        <input type="text" name="phone" placeholder="Telefono" />
+        <textarea name="address" placeholder="Direccion"></textarea>
+        <input type="button" name="previous" class="previous action-button" value="Previous" />
+        <input type="button" name="next" class="next action-button" value="Next" />
+      </fieldset>
+      <fieldset>
+        <h2 class="fs-title">Terminos y condiciones</h2>
+        <h3 class="fs-subtitle">Paso 3</h3>
+        <input type="checkbox" id="tc" name="tc" value="Acepto">
+        <label for="tc">Al presionar aceptar usted se compromete a:</label><br>
+        <input type="submit" name="submit" class="submit action-button" value="Acepto" />
+      </fieldset>
     
-  </form>
+    </form>
 
   {% endblock %}
 

@@ -1,0 +1,14 @@
+{% extends 'chat.html' %}
+{% load static %}
+
+
+    {% block content %}
+    
+        <form id="msform" method="post" action= 'mensajes'>
+            <fieldset>
+            <input type="text" name="mensaje" />
+            <input type="submit" href="{% url 'mensaje'  emisor receptor mascota_id %}" class="submit action-button" value="enviar" />
+            </fieldset>
+        </form>
+
+    {% endblock %}

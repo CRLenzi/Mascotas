@@ -1,0 +1,35 @@
+{% extends 'index.html' %}
+{% load static %}
+
+<body>
+
+  {% block content %}  
+
+    <form id="msform" method="post" action= ''>
+      <fieldset>
+      {% csrf_token %}
+        {% if object_list %}
+            {%for a in object_list %}
+                {% if a.id_nvo_duenio = user.is_authenticated.id %}
+                    {{a.a_mascotas}}
+                    {{a.id_duenio}}
+                    <a class= "btn-get-started scrollto" href={% url 'chat' a.id_duenio %}> Responder </a>
+                {% elif  a.id_duenio = user.is_authenticated.id%}
+                    {{a.a_mascotas}}
+                    {{a.id_nvo_duenio}}
+                    <a class= "btn-get-started scrollto" href={% url 'chat' a.id_nvo_duenio %}> Responder </a>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+      <input type="submit" name="Ingresar" class="next action-button" value="Ingresar" />
+      </fieldset>
+    </form>
+
+
+  {% endblock %}
+
+
+</body>
+
+</html>

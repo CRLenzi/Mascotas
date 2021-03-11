@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+{% load static %}
+
+<body>
+
+    {% block content %} 
+        {% csrf_token %}
+        {% if object_list %}
+            {%for a in object_list %}
+                {{a.envio}}
+                {{a.mensaje}}               
+            {% endfor %}
+        {% endif %}
+
+    {% endblock %}
+
+
+    
+</body>
+
+</html>

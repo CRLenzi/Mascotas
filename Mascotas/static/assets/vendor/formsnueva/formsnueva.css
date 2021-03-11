@@ -1,0 +1,73 @@
+/*custom font*/
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+/*basic reset*/
+* {margin: 0; padding: 0;}
+
+html {
+	height: 100%;
+	/*Image only BG fallback*/
+}
+
+body {
+	font-family: montserrat, arial, verdana;
+}
+/*form styles*/
+#adopform {
+	width: 100%;
+	margin: 50px auto;
+	text-align: left;
+	position: relative;
+}
+#adopform fieldset {
+	background:linear-gradient(45deg, rgba(29, 224, 153, 0.8), rgba(29, 200, 205, 0.8));
+	border: 0 none;
+	border-radius: 3px;
+	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+	padding: 20px 30px;
+	box-sizing: border-box;
+	width: 80%;
+	margin: 0 10%;
+	
+	/*stacking fieldsets above each other*/
+	position: relative;
+}
+/*Hide all except first fieldset*/
+#adopform fieldset:not(:first-of-type) {
+	display: none;
+}
+/*inputs*/
+#adopform input {
+	padding: 15px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	margin-bottom: 10px;
+	width: 30%;
+	box-sizing: border-box;
+	font-family: montserrat;
+	color: #2C3E50;
+	font-size: 13px;
+	
+}
+
+#adopform .input, #adopform .label{
+	left: 10%;
+	float: none;
+
+}
+/*buttons*/
+#adopform .action-button {
+	width: 100px;
+	background: #1de099;
+	font-weight: bold;
+	color: white;
+	border: 1px solid rgb(245, 242, 242);
+	border-radius: 1px;
+	cursor: pointer;
+	padding: 10px 5px;
+	margin: 10px 5px;
+}
+#adopform .action-button:hover, #adopform .action-button:focus {
+	box-shadow: 0 0 0 2px white, 0 0 0 3px #1de099;
+}
+

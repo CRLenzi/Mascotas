@@ -15,22 +15,32 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from Mascotas.view import inicio, denuncias, veterinaria
-from apps.transito.views import transito
-from apps.adopcion.views import adopcion, adoptar, nva_adopcion
+from Mascotas.view import inicio
 from apps.usuario.views import registro, login, logout
+from apps.transito.views import TransitoUpdate, transitoCreate, transitoList
+from apps.adopcion.views import adopcion, adoptar, nva_adopcion, adopcionUpdate, adopcionCreate, adopcionList
+from apps.mensajes.views import Chats, mensajes
+from apps.denuncias.views import denunciar
 """aca van las vistas o views"""
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', inicio, name = 'inicio'),
+
     path('registro/', registro, name= 'registro'),
-    path('login/', login, name='login'),
-    path('logout/', logout, name='logout'),
-    path('adoptar/', adoptar, name= 'adoptar'),
-    path('adopciones/', adopcion, name= 'adopcion'),
-    path ('nueva/', nva_adopcion, name= 'nuevaadopcion'),
-    path('transito/', transito, name= 'transito'),
-    path('denuncias/', denuncias, name= 'denuncias'),
-    path('veterinarias/', veterinaria, name= 'veterinarias'),
+    path('login/', login.as_view(), name='login'),
+    path('logout/', logout.as_view(), name='logout'),
+    
+    path('adoptar/<int:mascota_id>', adoptar.as_view(), name= 'adoptar'),
+    path('adopciones/', adopcionList.as_view(), name= 'adopcion'),
+    path ('nueva/', adopcionCreate.as_view(), name= 'nuevaadopcion'),
+    
+    path ('nuevo/',  transitoCreate.as_view(), name= 'nuevotransito'),
+    path ('transito/', transitoList.as_view(), name= 'transito'),
+    
+    path('denuncias/', denunciar, name= 'denuncias'),
+
+    path('chat/',Chats, name= 'chat'),
+    path('Mensajes/<int:usuario_emisor>/<int:usuario_receptor/<int:mascota_id>', Mensajes, name= 'mensaje'),
+
 ]
