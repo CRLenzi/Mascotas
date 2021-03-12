@@ -7,7 +7,7 @@
         <form id="msform" method="post" action= 'mensajes'>
             <fieldset>
             <input type="text" name="mensaje" />
-            <input type="submit" href="{% url 'mensaje'  emisor receptor mascota_id %}" class="submit action-button" value="enviar" />
+            <input type="submit" href="{% url 'mensaje'  emisor=user.id receptor=object.id mascota_id=object.id_mascotas %}" class="submit action-button" value="enviar" />
             </fieldset>
         </form>
 

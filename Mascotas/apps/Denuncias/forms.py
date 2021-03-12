@@ -1,5 +1,6 @@
 from django import forms
-from apps.base_datos.models import Denuncias
+from apps.usuario.models import Usuario
+from .models import Denuncias
 
 class Denuncias(forms.ModelForm):
 
@@ -7,20 +8,20 @@ class Denuncias(forms.ModelForm):
         model = Denuncias
 
         fields = [
-            'id_duenio',
-            'id_nvo_duenio',
+            'denunciante',
+            'denunciado',
             'descripcion',
         ]
 
         labels = {
-            'id_duenio': user.first_name,
-            'id_nvo_duenio': 'Denunciado',
+            'denunciante': Usuario.id,
+            'denunciado': 'Denunciado',
             'descripcion': 'Escriba su denuncia',
 
         }
 
         widgets = {
-            'id_nvo_duenio': forms.Select(),
+            'denunciado': forms.Select(),
             'descripcion': forms.TextInput(),
         }
 

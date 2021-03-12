@@ -5,10 +5,10 @@
 
   {% block content %}  
 
-    <form id="msform" method="post" action= ''>
+    <form id="msform"method="post">
       <fieldset>
       {% csrf_token %}
-      {{ form.as_p }}
+      {{ form }}
       <input type="submit" name="Ingresar" class="next action-button" value="Ingresar" />
       </fieldset>
     </form>

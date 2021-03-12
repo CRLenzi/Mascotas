@@ -28,4 +28,4 @@ def Mensajes(request, emisor, receptor, mascota_id ):
     u2 = Usuario.objects.get(id=receptor)
     m = Mensajes.objects.create(emisior=u1, receptor=u2, id_mascotas= mascota_id)
 
-    return redirect('Mensajes')
+    return redirect('Mensajes', m)

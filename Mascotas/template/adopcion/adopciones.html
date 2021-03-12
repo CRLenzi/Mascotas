@@ -19,7 +19,7 @@
           <div class="row">
             {% if object_list %}
               {%for a in object_list %}
-                {% if a.estado = 0 %}
+                {% if a.estado == 0 %}
                   <div class="col-lg-4 col-md-6">
                     <div class="box wow fadeInLeft">
                       <h3>{{a.nombre}}</h3>

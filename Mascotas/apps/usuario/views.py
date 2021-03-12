@@ -9,9 +9,10 @@ from django.template import loader, Context
 from django.views.generic import ListView, UpdateView
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-from .models import Usuario, User
+from .models import Usuario
 from .forms import RegistroForm
 from django.contrib.auth.views import LoginView, LogoutView
+from django.urls import reverse_lazy
 
 
 def registro(request):
@@ -28,7 +29,9 @@ def registro(request):
 
 
 class login(LoginView):
+    model = Usuario
     template_name = 'Usuario/login.html'
+    success_url = reverse_lazy('inicio')
 
 class logout(LogoutView):
     pass

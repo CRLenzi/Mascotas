@@ -1,4 +1,5 @@
 from django import forms
+from apps.adopcion.models import MascotasAdopcion
 from apps.usuario.models import Usuario
 from .models import Mensajes
 

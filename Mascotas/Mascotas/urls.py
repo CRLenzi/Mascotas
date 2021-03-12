@@ -17,10 +17,9 @@ from django.contrib import admin
 from django.urls import path
 from Mascotas.view import inicio
 from apps.usuario.views import registro, login, logout
-from apps.transito.views import TransitoUpdate, transitoCreate, transitoList
 from apps.adopcion.views import adopcion, adoptar, nva_adopcion, adopcionUpdate, adopcionCreate, adopcionList
-from apps.mensajes.views import Chats, mensajes
-from apps.denuncias.views import denunciar
+from apps.mensajes.views import Chats, Mensajes
+from apps.Denuncias.views import denunciar
 """aca van las vistas o views"""
 
 urlpatterns = [
@@ -35,12 +34,9 @@ urlpatterns = [
     path('adopciones/', adopcionList.as_view(), name= 'adopcion'),
     path ('nueva/', adopcionCreate.as_view(), name= 'nuevaadopcion'),
     
-    path ('nuevo/',  transitoCreate.as_view(), name= 'nuevotransito'),
-    path ('transito/', transitoList.as_view(), name= 'transito'),
-    
     path('denuncias/', denunciar, name= 'denuncias'),
 
     path('chat/',Chats, name= 'chat'),
-    path('Mensajes/<int:usuario_emisor>/<int:usuario_receptor/<int:mascota_id>', Mensajes, name= 'mensaje'),
+    path('Mensajes/<int:emisor>/<int:receptor>/<int:mascota_id>', Mensajes, name= 'mensaje'),
 
 ]

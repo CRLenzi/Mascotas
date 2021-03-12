@@ -49,7 +49,6 @@
       <nav id="nav-menu-container">
         <ul class="nav-menu sf-js-enabled sf-arrows" style="touch-action: pan-y;">
           <li class="menu-active"><a href="{% url 'inicio' %}">Home</a></li>
-          <li><a href="#about">Sobre Nosotros</a></li>
           <li class="menu-has-children"><a href="" class="sf-with-ul">Adopciones</a>
             <ul>
               <li><a href="{% url 'adopcion' %}">Mascotas en adopcion</a></li>
@@ -58,17 +57,9 @@
                 {% endif %}
             </ul>
           </li>
-          <li><a href="">Transito</a></li>
-          <ul>
-              <li><a href="{% url 'transito' %}">Mascotas en transito</a></li>
-                {%if user.is_authenticated%}
-                  <li><a href="{% url 'nuevotransito' %}">Ingresar nuevo transito</a></li>
-                {% endif %}
-          </ul>
           {%if user.is_authenticated%}
             <li><a href="{% url 'denuncias' %}">Denunciar usuario</a></li>
           {% endif %}
-          <li><a href="{% url 'veterinarias' %}">Veterinarias</a></li>   
           {%if user.is_authenticated%}
               <li class="menu-has-children"><a href="" class="sf-with-ul">{{ user.username }}</a>
                 <ul>
@@ -84,7 +75,6 @@
                 </ul>
               </li>
           {% endif %}
-          <li><a href="contacto">Contactanos</a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>

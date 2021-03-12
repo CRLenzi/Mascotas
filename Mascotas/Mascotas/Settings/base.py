@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 from pathlib import Path
-from apps import usuario, adopcion, transito, mensajes, Denuncias
+from apps import usuario, adopcion, Denuncias
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     
     'apps.usuario',
     'apps.adopcion',
-    'apps.transito',
     'apps.mensajes',
     'apps.Denuncias',
 ]
@@ -100,7 +99,7 @@ AUTH_USER_MODEL = 'usuario.Usuario'
 LOGIN_REDIRECT_URL = '/'
 
 AUTHENTICATION_BACKENDS = [
-    'app.usuario.autenticacion_usuario.EmailAuthBackend',
+    'apps.usuario.autenticacion_usuario.EmailAuthBackend',
 ]
 
 AUTH_PASSWORD_VALIDATORS = [

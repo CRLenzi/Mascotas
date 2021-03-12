@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
-from apps.base_datos.models import Usuarios, Denuncias
+from apps.usuario.models import Usuario
 from django.template import loader, Context
 from django.views.generic import ListView
-from .form import Denuncias
+from .forms import Denuncias
 
 
 def denunciar(request):
