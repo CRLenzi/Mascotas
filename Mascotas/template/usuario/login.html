@@ -5,11 +5,11 @@
 
   {% block content %}  
 
-    <form id="msform"method="post">
+    <form id="msform" method="GET">
       <fieldset>
       {% csrf_token %}
       {{ form }}
-      <input type="submit" name="Ingresar" class="next action-button" value="Ingresar" />
+      <input type="submit" name="Ingresar" value="Ingresar" href ="{% url 'inicio' %}"/>
       </fieldset>
     </form>
 

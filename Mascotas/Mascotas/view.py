@@ -12,6 +12,6 @@ from django.urls import reverse_lazy
 
 def inicio(request):
 	
-	return render(request, "inicio.html")
+	return render(request, "index.html")
 
 
