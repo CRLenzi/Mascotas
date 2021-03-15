@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 from pathlib import Path
-from apps import usuario, adopcion, Denuncias
+from apps import usuario, adopcion, denuncia, mensaje
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -23,11 +23,6 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'p4u8p*j99a$sl%&$km1rkcg8+45u*0uh8-6bur$ilo7hpvm#d1'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -42,8 +37,8 @@ INSTALLED_APPS = [
     
     'apps.usuario',
     'apps.adopcion',
-    'apps.mensajes',
-    'apps.Denuncias',
+    'apps.mensaje',
+    'apps.denuncia',
 ]
 
 MIDDLEWARE = [
@@ -79,18 +74,7 @@ WSGI_APPLICATION = 'Mascotas.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    
-    'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'infomascotas',
-            'USER': 'root',
-            'PASSWORD': 'informatorio',
-            'HOST': 'localhost',
-            'PORT': '3306',
 
-        }
-}
 
 AUTH_USER_MODEL = 'usuario.Usuario'
 # Password validation

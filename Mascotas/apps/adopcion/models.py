@@ -3,13 +3,12 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from apps.usuario.models import Usuario
-from Mascotas.Settings import base
+
 
 # Create your models here.
 class MascotasAdopcion(models.Model):
-    a_mascotas = models.AutoField(db_column='A_Mascotas', primary_key=True)  # Field name made lowercase.
     a_nombre = models.CharField(max_length=11, blank=True)
-    id_usuario_fk = models.ForeignKey(base.AUTH_USER_MODEL, db_column='id_Usuario_fk',on_delete=models.CASCADE)  # Field name made lowercase.
+    id_usuario_fk = models.ForeignKey(Usuario,on_delete=models.CASCADE)  # Field name made lowercase.
     sexo = models.CharField(max_length=10, blank=True, null=True)
     descripcion = models.CharField(max_length=250, blank=True, null=True)
     imagen = models.TextField(blank=True, null=True)
@@ -21,6 +20,4 @@ class MascotasAdopcion(models.Model):
     estado = models.IntegerField()
 
     class Meta:
-        managed = False
         db_table = 'mascotas_adopcion'
-        unique_together = (('a_mascotas', 'id_usuario_fk'),)

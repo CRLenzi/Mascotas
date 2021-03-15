@@ -7,7 +7,7 @@ from django.contrib.auth import logout as do_logout
 from .models import MascotasAdopcion
 from django.template import loader, Context
 from django.views.generic import ListView, UpdateView, CreateView, DetailView
-from .form import nueva_adopcion
+from .forms import nueva_adopcion
 from django.urls import reverse_lazy
 
 
@@ -57,14 +57,5 @@ class adopcionUpdate(UpdateView):
 
 
 
-def get_data(request):
-	 if request.method == 'POST':
-		 nombre = request.POST.get('')
-		 edad = request.POST.get('')
-		 descripcion = request.POST.get('')
-		 vacunas = request.POST.get('')
-		 castracion= request.POST.get('')
-		 atencion_especial = request.POST.get('')
-		 des_atencion_especial = request.POST.get('')
-	 return  data_1, data_2
+
 

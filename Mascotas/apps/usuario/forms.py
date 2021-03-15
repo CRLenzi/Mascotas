@@ -38,6 +38,3 @@ class RegistroForm(UserCreationForm):
 			'telefono': forms.TextInput(),
 			'direccion': forms.TextInput(),
 		}
-
-
-	   

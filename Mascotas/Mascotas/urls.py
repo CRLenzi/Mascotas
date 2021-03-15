@@ -18,8 +18,8 @@ from django.urls import path
 from Mascotas.view import inicio
 from apps.usuario.views import registro, login, logout
 from apps.adopcion.views import adopcion, adoptar, nva_adopcion, adopcionUpdate, adopcionCreate, adopcionList
-from apps.mensajes.views import Chats, Mensajes
-from apps.Denuncias.views import denunciar
+from apps.mensaje.views import Chats, Mensajes
+from apps.denuncia.views import denunciar
 """aca van las vistas o views"""
 
 urlpatterns = [

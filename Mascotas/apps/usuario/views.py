@@ -40,6 +40,3 @@ class UsuarioUpdateView(UpdateView):
     model = Usuario
     template_name = "ModificarUsuario.html"
 
-
-
-
