@@ -82,9 +82,9 @@ AUTH_USER_MODEL = 'usuario.Usuario'
 
 LOGIN_REDIRECT_URL = '/'
 
-AUTHENTICATION_BACKENDS = [
-    'apps.usuario.autenticacion_usuario.EmailAuthBackend',
-]
+#AUTHENTICATION_BACKENDS = [
+#    'apps.usuario.autenticacion_usuario.EmailAuthBackend',
+#]
 
 AUTH_PASSWORD_VALIDATORS = [
     {

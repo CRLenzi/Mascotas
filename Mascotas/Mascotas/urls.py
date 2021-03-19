@@ -27,7 +27,7 @@ urlpatterns = [
     path('', inicio, name = 'inicio'),
 
     path('registro/', registro, name= 'registro'),
-    path('login/', login.as_view(), name='login'),
+    path('login/', login, name='login'),
     path('logout/', logout.as_view(), name='logout'),
     
     path('adoptar/<int:mascota_id>', adoptar.as_view(), name= 'adoptar'),

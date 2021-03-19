@@ -8,18 +8,28 @@
   {% block content %}  
     {% csrf_token %}
         <!-- multistep form -->
-    <form id="msform" action= 'inicio' method="post">
+    <form id="msform"  method="post">
+      {% if form.errors %}
+        {% for field in form %}
+            {% for error in field.errors %}
+                <div class="alert alert-danger">
+                    <strong>{{ error|escape }}</strong>
+                </div>
+            {% endfor %}
+        {% endfor %}
+        {% for error in form.non_field_errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+      {% endif %}
     <!-- progressbar -->
-      <ul id="progressbar">
-        <li class="active">Cuenta</li>
-        <li>Datos personales</li>
-      </ul>
       <!-- fieldsets -->
       <fieldset>
         <h2 class="fs-title">Crea tu cuenta</h2>
         <h3 class="fs-subtitle">Paso 1</h3>
         Email
-        {{form.email}}
+        {{form.username}}
         Contraseña        
         {{form.password1}}
         Confirmar contraseña
@@ -37,7 +47,7 @@
         {{form.telefono}}
         Direccion
         {{form.direccion}}
-        <input type="submit" name="submit" class="submit action-button" value="Crear cuenta" />
+        <input type="submit" name="submit" class="submit action-button" value="Crear cuenta" href="{% url 'inicio' %}"/>
       </fieldset>
     
     </form>

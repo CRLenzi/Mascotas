@@ -5,11 +5,14 @@
 
   {% block content %}  
 
-    <form id="msform" method="GET">
+    <form id="msform" method="POST" next="{% url 'inicio' %}" >
+      {% if form.errors %}
+      <p class="error">Sorry, that's not a valid username or password</p>
+      {% endif %}
       <fieldset>
       {% csrf_token %}
       {{ form }}
-      <input type="submit" name="Ingresar" value="Ingresar" href ="{% url 'inicio' %}"/>
+      <input type="submit" name="Ingresar" value="Ingresar" />
       </fieldset>
     </form>
 

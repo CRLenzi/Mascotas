@@ -10,7 +10,7 @@ class RegistroForm(UserCreationForm):
 		fields = [
 			'first_name',
 			'last_name',
-			'email',
+			'username',
 			'password1',
 			'password2',
 			'is_staff',
@@ -23,7 +23,7 @@ class RegistroForm(UserCreationForm):
 			'last_name': 'Apellidos',
 			'password1': 'Ingrese su contraseña',
 			'password2': 'Ingrese nuevamente su contraseña',
-			'email': 'Correo electronico',
+			'username': 'Correo electronico',
 			'is_staff': False,
 			'telefono': 'telefono',
 			'direccion': 'direccion',
@@ -32,7 +32,7 @@ class RegistroForm(UserCreationForm):
 		widgets = {
 			'first_name': forms.TextInput(),
 			'last_name': forms.TextInput(),
-			'email': forms.TextInput(),
+			'username': forms.TextInput(),
 			'password1' :forms.PasswordInput(),
 			'password2': forms.PasswordInput(),
 			'telefono': forms.TextInput(),

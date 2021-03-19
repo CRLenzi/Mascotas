@@ -63,8 +63,8 @@
           {%if user.is_authenticated%}
               <li class="menu-has-children"><a href="" class="sf-with-ul">{{ user.username }}</a>
                 <ul>
-                  <li><a href="{% url 'registro' %}">Mensajes</a></li>
-                  <li><a href="{% url 'login' %}">Cerrar secion</a></li>
+                  <li><a href="{% url 'chat' %}">Mensajes</a></li>
+                  <li><a href="{% url 'logout' %}">Cerrar secion</a></li>
                 </ul>
               </li>
           {%else %}
