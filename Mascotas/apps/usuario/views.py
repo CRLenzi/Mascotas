@@ -6,7 +6,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login as do_login
 from django.contrib.auth import logout as do_logout
 from django.template import loader, Context
-from django.views.generic import ListView, UpdateView
+from django.views.generic import ListView, UpdateView,CreateView
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from .models import Usuario
@@ -15,28 +15,14 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import reverse_lazy
 
 
-def registro(request):
 
-    form = RegistroForm(request.POST or None, request.FILES or None)
-    if request.method == 'POST':
-        if form.is_valid():
-            form.save()
-            return redirect('usuario/Usuario.html')
-    else:
-        form = RegistroForm()
 
-    return render(request, 'usuario/registro.html', {'form' : form })
+class registro(CreateView):
+    model = Usuario
+    template_name = "usuario/registro.html"
+    form_class = RegistroForm
+    success_url = reverse_lazy ('inicio')
 
-def login(request):
-    username = request.POST.get("username", "default value")
-    password = request.POST.get("password", "default value")
-    user = auth.authenticate(username=username, password=password)
-    if user is not None and user.is_active:
-        auth.login(request, user)
-        return HttpResponseRedirect("/account/loggedin/")
-    else:
-        # Show an error page
-        return HttpResponseRedirect("/account/invalid/")
 
 
 class logout(LogoutView):

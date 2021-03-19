@@ -7,12 +7,12 @@
 
     {% block content %}  
         
-        <form id="msform" action="{% url 'Adopciones' %}" method="GET">
+        <form id="msform"  method="POST">
 
           {% csrf_token %}
           {{form}}
 
-          <button type="submit"> Cargar datos </button>
+          <input type="submit" name="submit" value="Cargar adopción" href="{% url 'adopciones' %}"/>
 
         </form>
 

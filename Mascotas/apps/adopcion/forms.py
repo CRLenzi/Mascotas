@@ -12,10 +12,7 @@ class nueva_adopcion(forms.ModelForm):
              'descripcion',
              'imagen',
              'edad',
-             'vacunas',
-             'castracion',
-             'atencion_especial',
-             'des_at_especial',  
+             'estado',
         ]
 
         labels = {
@@ -24,10 +21,7 @@ class nueva_adopcion(forms.ModelForm):
             'descripcion': "Descripcion de la mascota",
             'imagen' : "Imagen de la mascota",
             'edad' : "Edad",
-            'vacunas' : "¿Tiene todas sus vacunas al dia?",
-            'castracion' : "¿Esta castrado?",
-            'atencion_especial' : "¿Requiere atencion especial?",
-            'des_at_especial' : "Si res´pondio antes que si por favor especifique cual",
+            'estado': False,
 
         }
 
@@ -37,10 +31,6 @@ class nueva_adopcion(forms.ModelForm):
              'descripcion': forms.TextInput(),
              'imagen': forms.FileInput(),
              'edad': forms.TextInput(),
-             'vacunas':forms.CheckboxInput(),
-             'castracion': forms.CheckboxInput(),
-             'atencion_especial': forms.CheckboxInput(),
-             'des_at_especial': forms.TextInput(),
         }
 
 

@@ -13,10 +13,6 @@ class MascotasAdopcion(models.Model):
     descripcion = models.CharField(max_length=250, blank=True, null=True)
     imagen = models.TextField(blank=True, null=True)
     edad = models.CharField(max_length=10, blank=True, null=True)
-    vacunas = models.IntegerField()
-    castracion = models.IntegerField()
-    atencion_especial = models.IntegerField()
-    des_at_especial = models.CharField(max_length=200, blank=True, null=True)
     estado = models.IntegerField()
 
     class Meta:

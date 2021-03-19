@@ -6,9 +6,9 @@
 <body>
 
   {% block content %}  
-    {% csrf_token %}
         <!-- multistep form -->
-    <form id="msform"  method="post">
+    <form id="msform"  method="POST">
+    {% csrf_token %}
       {% if form.errors %}
         {% for field in form %}
             {% for error in field.errors %}

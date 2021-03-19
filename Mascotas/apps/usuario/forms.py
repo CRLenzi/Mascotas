@@ -11,8 +11,6 @@ class RegistroForm(UserCreationForm):
 			'first_name',
 			'last_name',
 			'username',
-			'password1',
-			'password2',
 			'is_staff',
 			'telefono',
 			'direccion',
@@ -21,9 +19,7 @@ class RegistroForm(UserCreationForm):
 		labels = {
 			'first_name': 'Nombre',
 			'last_name': 'Apellidos',
-			'password1': 'Ingrese su contraseña',
-			'password2': 'Ingrese nuevamente su contraseña',
-			'username': 'Correo electronico',
+			'username': 'email',
 			'is_staff': False,
 			'telefono': 'telefono',
 			'direccion': 'direccion',
@@ -33,8 +29,6 @@ class RegistroForm(UserCreationForm):
 			'first_name': forms.TextInput(),
 			'last_name': forms.TextInput(),
 			'username': forms.TextInput(),
-			'password1' :forms.PasswordInput(),
-			'password2': forms.PasswordInput(),
 			'telefono': forms.TextInput(),
 			'direccion': forms.TextInput(),
 		}
