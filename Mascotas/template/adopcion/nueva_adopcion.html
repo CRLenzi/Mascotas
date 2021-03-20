@@ -7,7 +7,7 @@
 
     {% block content %}  
         
-        <form id="msform"  method="GET">
+        <form id="msform"  method="get">
 
           {% csrf_token %}
           {% if form.errors %}
@@ -24,17 +24,9 @@
               </div>
             {% endfor %}
           {% endif %}
-          <h2 class="fs-title">Mascota en adopción</h2>
-          Nombre
-          {{form.a_nombre}}
-          Edad aproximada        
-          {{form.edad}}
-          Descripcion
-          {{form.descripcion}}
-          Sexo
-          {{form.sexo}}
-          Foto        
-          {{form.imagen}}      
+
+          {{form.as_p}}
+          
           <input type="submit" name="submit" value="Cargar adopción" href="{% url 'adopciones' %}"/>      
 
          

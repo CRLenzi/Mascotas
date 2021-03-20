@@ -34,7 +34,7 @@ urlpatterns = [
     
     path('adoptar/<int:mascota_id>', adoptar.as_view(), name= 'adoptar'),
     path('adopciones/', adopcionList.as_view(), name= 'adopciones'),
-    path('nueva/', adopcionCreate.as_view(), name= 'nuevaadopcion'),
+    path('nueva/<int:id>', adopcionCreate.as_view(), name= 'nuevaadopcion'),
     
     path('denuncias/', denunciar, name= 'denuncias'),
 
