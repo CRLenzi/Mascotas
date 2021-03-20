@@ -51,9 +51,9 @@
           <li class="menu-active"><a href="{% url 'inicio' %}">Home</a></li>
           <li class="menu-has-children"><a href="" class="sf-with-ul">Adopciones</a>
             <ul>
-              <li><a href="{% url 'adopcion' %}">Mascotas en adopcion</a></li>
+              <li><a href="{% url 'adopciones' %}">Mascotas en adopcion</a></li>
                 {%if user.is_authenticated%}
-                  <li><a href="{% url 'nuevaadopcion' %}">Ingresar nueva adopcion</a></li>
+                  <li><a href="{% url 'nuevaadopcion' id=user.id %}">Ingresar nueva adopcion</a></li>
                 {% endif %}
             </ul>
           </li>

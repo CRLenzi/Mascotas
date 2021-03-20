@@ -8,7 +8,7 @@ from apps.usuario.models import Usuario
 # Create your models here.
 class MascotasAdopcion(models.Model):
     a_nombre = models.CharField(max_length=11, blank=True)
-    id_usuario_fk = models.ForeignKey(Usuario,on_delete=models.CASCADE)  # Field name made lowercase.
+    id_usuario_fk = models.ForeignKey(Usuario,on_delete=models.CASCADE)  
     sexo = models.CharField(max_length=10, blank=True, null=True)
     descripcion = models.CharField(max_length=250, blank=True, null=True)
     imagen = models.TextField(blank=True, null=True)

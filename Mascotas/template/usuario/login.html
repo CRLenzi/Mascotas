@@ -7,7 +7,7 @@
 
     <form id="msform" method="POST" next="{% url 'inicio' %}" >
       {% if form.errors %}
-      <p class="error">Sorry, that's not a valid username or password</p>
+      <p class="error">El email o contraseña no coinciden con un usuario existente</p>
       {% endif %}
       <fieldset>
       {% csrf_token %}
